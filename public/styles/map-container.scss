@@ -1,0 +1,16 @@
+@import 'variables';
+
+.map-container{
+    background: $optionColor;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    .map-circle{
+        background: $mapColor;
+        height: 30vw;
+        width: 30vw;
+        border-radius: 15vw;
+        border: 2px solid $borderColor;
+    }
+}

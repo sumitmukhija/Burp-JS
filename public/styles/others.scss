@@ -6,12 +6,9 @@
     .container{
         display: grid;
         height: 100%;
-        grid-template-rows: 100%;
-        grid-template-columns: 35% 65%;
-        .options-container{
-            background: $optionColor;
-        }
-        .map-container{
+        grid-template-rows: 80% 20%;
+        grid-template-columns: 100%;
+        .action-container{
             background: $mapColor;
         }
     }

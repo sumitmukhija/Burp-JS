@@ -1,17 +1,24 @@
 @import 'variables';
+@import 'map-container';
 
 // For phones
 @media only screen and (max-width: 1000px){
 
     .container{
         display: grid;
-        height: 200%;
-        grid-template-rows: 100% 100%;
+        height: 100%;
+        grid-template-rows: 90% 10%;
         grid-template-columns: 100%;
-        .options-container{
-            background: $optionColor;
-        }
         .map-container{
+            .map-circle{
+                background: $mapColor;
+                border: 2px solid $borderColor;
+                height: 70vw;
+                width: 70vw;
+                border-radius: 35vw;
+            }
+        }
+        .action-container{
             background: $mapColor;
         }
     }
