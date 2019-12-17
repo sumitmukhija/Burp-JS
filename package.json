@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "style":"sass public/styles/style.scss:public/styles/style.css --watch"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "google-map-react": "^1.1.5"
+  },
   "devDependencies": {
     "jest": "^24.9.0"
   }
