@@ -7,19 +7,34 @@
     .container{
         display: grid;
         height: 100%;
-        grid-template-rows: 90% 10%;
+        grid-template-rows: 20% 70% 10%;
         grid-template-columns: 100%;
         .map-container{
             .map-circle{
                 background: $mapColor;
-                border: 2px solid $borderColor;
-                height: 70vw;
-                width: 70vw;
-                border-radius: 35vw;
+                border: 4px solid $borderColor;
+                height: 80vw;
+                width: 80vw;
+                border-radius: 40vw;
             }
         }
         .action-container{
             background: $mapColor;
         }
     }
+
+    .title{
+        font-family: 'Ubuntu', sans-serif;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .btn {
+        width: 90vw;
+        height: 5vh;
+        font-size: 4em;
+    }
+
 }

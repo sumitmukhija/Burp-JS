@@ -6,10 +6,15 @@
     .container{
         display: grid;
         height: 100%;
-        grid-template-rows: 80% 20%;
+        grid-template-rows: 13% 67% 20%;
         grid-template-columns: 100%;
-        .action-container{
-            background: $mapColor;
-        }
+    }
+    
+    .title{
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     }
 }

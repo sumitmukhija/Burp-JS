@@ -1,0 +1,9 @@
+@import "variables";
+.action-container
+{
+    display: flex;
+    background: $mapColor;
+    align-items: center;
+    justify-content: center;
+}
+
