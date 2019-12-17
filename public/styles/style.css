@@ -1,0 +1,34 @@
+@media only screen and (max-width: 1000px) {
+  .container {
+    display: grid;
+    height: 200%;
+    grid-template-rows: 100% 100%;
+    grid-template-columns: 100%;
+  }
+  .container .options-container {
+    background: #F00;
+  }
+  .container .map-container {
+    background: #FF0;
+  }
+}
+@media only screen and (min-width: 1001px) {
+  .container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 100%;
+    grid-template-columns: 35% 65%;
+  }
+  .container .options-container {
+    background: #F00;
+  }
+  .container .map-container {
+    background: #FF0;
+  }
+}
+body {
+  margin: 0 auto;
+  height: 100vh;
+}
+
+/*# sourceMappingURL=style.css.map */
