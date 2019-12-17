@@ -15,6 +15,13 @@ body{
     color: $primaryTextColor;
 }
 
+.subtitleText{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1em;
+    opacity: 0.8;
+    color: $primaryTextColor;
+}
+
 .btn {
     padding: 20px;
     font-family: 'Ubuntu', sans-serif;

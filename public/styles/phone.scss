@@ -7,7 +7,7 @@
     .container{
         display: grid;
         height: 100%;
-        grid-template-rows: 20% 70% 10%;
+        grid-template-rows: 15% 15% 60% 10%;
         grid-template-columns: 100%;
         .map-container{
             .map-circle{
@@ -16,6 +16,7 @@
                 height: 80vw;
                 width: 80vw;
                 border-radius: 40vw;
+                overflow: hidden;
             }
         }
         .action-container{
@@ -31,10 +32,23 @@
         text-align: center;
     }
 
+    .titleText{
+    font-size: 9em !important;
+    opacity: 0.8;
+    color: $primaryTextColor;
+    }
+
+    .subtitleText{
+	    font-family: 'Ubuntu', sans-serif;
+	    font-size: 2em !important;
+        opacity: 0.8;
+        color: $primaryTextColor;
+    }
+
     .btn {
         width: 90vw;
         height: 5vh;
-        font-size: 4em;
+        font-size: 2em !important;
     }
 
 }

@@ -17,7 +17,7 @@
   .container {
     display: grid;
     height: 100%;
-    grid-template-rows: 20% 70% 10%;
+    grid-template-rows: 15% 15% 60% 10%;
     grid-template-columns: 100%;
   }
   .container .map-container .map-circle {
@@ -26,6 +26,7 @@
     height: 80vw;
     width: 80vw;
     border-radius: 40vw;
+    overflow: hidden;
   }
   .container .action-container {
     background: #FFF;
@@ -39,17 +40,30 @@
     text-align: center;
   }
 
+  .titleText {
+    font-size: 5em !important;
+    opacity: 0.8;
+    color: #000;
+  }
+
+  .subtitleText {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1em;
+    opacity: 0.8;
+    color: #000;
+  }
+
   .btn {
     width: 90vw;
     height: 5vh;
-    font-size: 4em;
+    font-size: 2em !important;
   }
 }
 @media only screen and (min-width: 1001px) {
   .container {
     display: grid;
     height: 100%;
-    grid-template-rows: 13% 67% 20%;
+    grid-template-rows: 13% 10% 67% 10%;
     grid-template-columns: 100%;
   }
 
@@ -90,6 +104,13 @@ body {
 
 .titleText {
   font-size: 3em;
+  opacity: 0.8;
+  color: #000;
+}
+
+.subtitleText {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1em;
   opacity: 0.8;
   color: #000;
 }
