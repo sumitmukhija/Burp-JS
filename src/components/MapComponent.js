@@ -2,10 +2,8 @@ import React from 'react';
 import Map from 'pigeon-maps';
 
 const MapComponent = (props) => {
-    return (
         <Map center={props.location} zoom={props.zoom}>
         </Map>
-    );
 }
 
 MapComponent.defaultProps = {

@@ -7,6 +7,9 @@ module.exports = {
         path: path.join(__dirname, "public/dist")
     },
     "module": {
-      rules:[{loader: "babel-loader", test: /\.js$/, exclude: /node_modules/}]  
+      rules: [
+        {loader: "babel-loader", test: /\.js$/, exclude: /node_modules/ },
+        { use: ["css-loader", "style-loader"], test: /\.css/}
+      ]  
     }
 };

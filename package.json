@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "live-server public/",
     "test": "jest",
     "build": "webpack --watch --mode=development",
     "style": "sass public/styles/style.scss:public/styles/style.css --watch"
@@ -11,11 +12,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "css-loader": "^3.4.0",
     "pigeon-maps": "^0.14.0",
     "pigeon-marker": "^0.3.4",
     "pigeon-overlay": "^0.2.3",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "style-loader": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
