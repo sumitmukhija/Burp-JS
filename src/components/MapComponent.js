@@ -1,9 +1,10 @@
 import React from 'react';
 import Map from 'pigeon-maps';
+import image from "../../public/images/placeholder.png"
 
 const MapComponent = (props) => {
-        <Map center={props.location} zoom={props.zoom}>
-        </Map>
+    return(<Map center={props.location} zoom={props.zoom}></Map>)
+        
 }
 
 MapComponent.defaultProps = {
