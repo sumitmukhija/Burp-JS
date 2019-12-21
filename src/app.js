@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "normalize.css/normalize.css";
 import Burp from "./components/Burp";
-import { getLocation } from "./util/geo_util";
-import "../public/styles/style.css"
+import "../public/styles/style.scss"
 
 const rootEl = document.querySelector('.root');
 ReactDOM.render(<Burp />, rootEl);

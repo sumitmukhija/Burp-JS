@@ -1,0 +1,75 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin : 0 auto;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.container{
+    .title{
+        background:$testColorTwo;
+        width: 100%;
+        margin: auto;
+        padding: $xl 0;
+        text-align: center;
+        .titleText{
+            font-size: $xl;
+            opacity: 0.8;
+            color: $primaryTextColor;
+        }
+    }
+    
+    .subtitle{
+        padding: $l;
+        background: $testColorOne;
+        text-align: center;
+    }
+
+    .map-container{
+        padding: $l;
+        background-color: $testColorTwo;
+        .map-circle{
+            margin: auto;
+            background: $mapColor;
+            height: 35vh;
+            overflow: hidden;
+            width: 35vh;
+            border-radius: 17.5vh;
+            border: 2px solid $borderColor;
+        }
+    }
+
+    .action-container{
+        background: $testColorOne;
+        padding: $l;
+        .btn {
+                margin-left: 40%;
+                padding: $m;
+                font-family: 'Ubuntu', sans-serif;
+                min-width: 20vw;
+                box-shadow:inset 0px 1px 0px 0px #0c1715;
+                background:linear-gradient(to bottom, #000000 5%, #202226 100%);
+                background-color:#000000;
+                border-radius:$m;
+                border:1px solid #1e2229;
+                cursor:pointer;
+                color:#ffffff;
+                font-size:$s;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #0a0a0a;
+                &:hover {
+                background:linear-gradient(to bottom, #202226 5%, #000000 100%);
+                background-color:#202226;
+                }
+                &:active {
+                    position:relative;
+                    top:1px;
+                }
+                &:focus{
+                    outline: none;
+                }
+        }
+    }
+}

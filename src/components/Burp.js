@@ -7,19 +7,22 @@ import { getListings } from "../util/network_util";
 export default class Burp extends React.Component{
 
     onDecider() {
-        getListings();
+        // getListings();
     }
 
     constructor() {
         super();
-        this.state = { location: null}
+        this.state = { location: [53.35014,-6.2661]}
         this.onDecider = this.onDecider.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
+        console.log("Goign for location");
         getLocation().then((position) => {
+            console.log(position);
             let lat = position.coords.latitude
             let lng = position.coords.longitude
+            console.log("Location " + lat + " " + lng);
             this.setState(() => {
                 return {
                     location: [lat, lng]
@@ -32,14 +35,14 @@ export default class Burp extends React.Component{
 
     render() {
         if (!this.state.location) {
-            return <div />
+            return <div>Loading..</div>
         }
         return (
             <div className="container">
                 <div className="title">
                     <span className="titleText">Burp!</span>
                 </div>
-                <div className="title">
+                <div className="subtitle">
                     <span className="subtitleText">Let us pick a place nearby to eat tonight.</span>
                 </div>
                 <div className="map-container">
@@ -47,7 +50,7 @@ export default class Burp extends React.Component{
                         <MapComponent location={this.state.location} />
                     </div>
                 </div>
-                <div className="action-container">
+                <div className="action-container"> 
                     <ActionComponent onDecider={this.onDecider}/>
                 </div>    
             </div>
