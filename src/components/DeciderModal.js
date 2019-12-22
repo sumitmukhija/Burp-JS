@@ -22,8 +22,8 @@ const DeciderModal = (props) => {
             isOpen={props.isVenueDecided}
             onRequestClose = {props.handleCloseModal}
         >
-        <div className='container' style={{ height: '50vh', width: '50vw', fontSize: '2em', textAlign: 'center'}}>
-          Try eating at {props.selectedPlace}
+        <div className='container' style={{ height: '50vh', width: '50vw', fontSize: '2.4em', textAlign: 'center'}}>
+          Try eating at <br/><br/> <strong> {props.selectedPlace} </strong>
           <div style={{ borderRadius: 5, marginTop: 120, overflow: 'none', background:'red', height: '30vh', width: '100%'}}>
             <Map center={props.location} zoom={props.zoom} ></Map>
             </div>

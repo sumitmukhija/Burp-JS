@@ -65,7 +65,7 @@ export default class Burp extends React.Component{
                 isVenueDecided={this.state.isVenueDecided}
                 handleCloseModal={this.handleCloseModal}
                 location={[this.state.place.position[0],this.state.place.position[1] ]}
-                zoom={20}
+                zoom={16}
                 selectedPlace={this.state.place.title}
                 />
         }
