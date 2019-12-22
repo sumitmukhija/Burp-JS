@@ -1,20 +1,17 @@
-export const urlCreater = (BASE_URL, API_KEY, latitude = 53.3498, longitude = 6.2603, RADIUS = 10000, type = "food") =>
-{
-    if(!API_KEY || !BASE_URL){
-        // TODO: Return error
+export const getListings = (lat, lng, onComplete) => {
+    let url = 'https://places.demo.api.here.com/places/v1/discover/search?q=restaurants&Geolocation=geo%3A' + lat + '%2C' + lng + '&Accept-Language=en-IN%2Cen-GB%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg';
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', url)
+    xhr.setRequestHeader('Content-type', 'application/json')
+    xhr.send()
+    xhr.onload = () => {
+        let json = JSON.parse(xhr.responseText);
+        let places = json.results.items;
+        let rIndex = Math.floor(Math.random() * 10);
+        onComplete(null, places[rIndex]);
     }
-    return BASE_URL+'/json?key='+API_KEY+'&location='+latitude+","+longitude+"&radius="+RADIUS+"&opennow&type="+type;
+
+    xhr.onerror = () => {
+        onComplete(xhr.response)
+    }
 }
-
-
-
-export const getListings = () => {
-    let url = urlCreater("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?parameters",
-        "AIzaSyD41QCIUFo0aSsmlrdJFZW8bMP4_19xBpU");
-    console.log(url);
-    const http = new XMLHttpRequest()
-    http.open("GET", url);
-    http.send()
-    http.onload = () => console.log(http.responseText)    
-}
-

@@ -7,35 +7,44 @@ import { getListings } from "../util/network_util";
 
 export default class Burp extends React.Component{
 
-    onDecider() {
-
-
-        // getListings();
-    }
-
     handleOpenModal() {
-        this.setState({ isVenueDecided: true });
+        this.setState(() => { return { isVenueDecided: true } });
     }
 
     handleCloseModal() {
-        this.setState({ isVenueDecided: false });
+        this.setState(() => { return { isVenueDecided: false } });
+    }
+
+    onCompleteRequest(err, place) {
+        if (err || !place) {
+            if (!err) {
+                err = "Something went wrong!";
+            }
+            alert(err);
+            return;
+        }
+        else {
+            console.log(place);
+            this.setState(() => {
+                return { place: place }
+            })
+        }
     }
 
     constructor() {
         super();
-        this.state = { location: [53.35014,-6.2661], isVenueDecided: false}
-        this.onDecider = this.onDecider.bind(this);
+        // [53.2694547, -6.112928000000002],
+        this.state = { location: null, place: null, isVenueDecided: false}
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.onCompleteRequest = this.onCompleteRequest.bind(this);
     }
 
     componentDidMount() {
-        console.log("Goign for location");
         getLocation().then((position) => {
-            console.log(position);
-            let lat = position.coords.latitude
-            let lng = position.coords.longitude
-            console.log("Location " + lat + " " + lng);
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
+            getListings(lat, lng, this.onCompleteRequest);
             this.setState(() => {
                 return {
                     location: [lat, lng]
@@ -51,7 +60,14 @@ export default class Burp extends React.Component{
             return <div>Loading..</div>
         }
         if (this.state.isVenueDecided) {
-            return <Decider handleCloseModal={this.handleCloseModal} isVenueDecided={this.state.isVenueDecided}/>
+            return <Decider
+                handleCloseModal={this.handleCloseModal}
+                isVenueDecided={this.state.isVenueDecided}
+                handleCloseModal={this.handleCloseModal}
+                location={[this.state.place.position[0],this.state.place.position[1] ]}
+                zoom={20}
+                selectedPlace={this.state.place.title}
+                />
         }
         return (
             <div className="container">
@@ -67,7 +83,7 @@ export default class Burp extends React.Component{
                     </div>
                 </div>
                 <div className="action-container"> 
-                    <ActionComponent onDecider={this.handleOpenModal}/>
+                    <ActionComponent onDecider={this.handleOpenModal} place={this.state.place}/>
                 </div>    
             </div>
         );
