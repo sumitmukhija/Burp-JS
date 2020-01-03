@@ -39,6 +39,15 @@ body{
             width: 35vh;
             border-radius: 17.5vh;
             border: 2px solid $borderColor;
+
+            .loader{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                background-color: #0277BD;
+            }
+
         }
     }
 

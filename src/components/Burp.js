@@ -1,8 +1,9 @@
 import React from 'react';
 import ActionComponent from "./ActionComponent";
 import MapComponent from "./MapComponent";
-import { getLocation } from "../util/geo_util";
 import Decider from "./DeciderModal";
+import Loader from "./Loader";
+import { getLocation } from "../util/geo_util";
 import { getListings } from "../util/network_util";
 
 export default class Burp extends React.Component{
@@ -24,20 +25,23 @@ export default class Burp extends React.Component{
             return;
         }
         else {
-            console.log(place);
             this.setState(() => {
                 return { place: place }
             })
         }
     }
 
+    getMapOrLoader() {
+        return (this.state.place !== null) ? (<MapComponent location={this.state.location} />) : (<Loader />);
+    }
+
     constructor() {
         super();
-        // [53.2694547, -6.112928000000002],
         this.state = { location: null, place: null, isVenueDecided: false}
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.onCompleteRequest = this.onCompleteRequest.bind(this);
+        this.getMapOrLoader = this.getMapOrLoader.bind(this);
     }
 
     componentDidMount() {
@@ -56,9 +60,6 @@ export default class Burp extends React.Component{
     }
 
     render() {
-        if (!this.state.location) {
-            return <div>Loading..</div>
-        }
         if (this.state.isVenueDecided) {
             return <Decider
                 handleCloseModal={this.handleCloseModal}
@@ -79,7 +80,7 @@ export default class Burp extends React.Component{
                 </div>
                 <div className="map-container">
                     <div className="map-circle">
-                        <MapComponent location={this.state.location} />
+                        {this.getMapOrLoader()}
                     </div>
                 </div>
                 <div className="action-container"> 
