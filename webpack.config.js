@@ -1,7 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  mode: "development",
+  entry: "./src/app.tsx",
+  output: {
+    filename: "bundle.js",
+    path: path.join(__dirname, "public/dist")
+  },
+
+  mode: "production",
 
   // Enable sourcemaps for debugging webpack's output .js
   devtool: "source-map",
@@ -19,13 +25,6 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.(jpg|png)$/, use: { loader: 'url-loader' } },
-      { test: /\.js$/, use: { loader: 'babel-loader' }, exclude: /node_modules/ },
-      {
-        test: /\.s?css$/, use: [{ loader: "style-loader" }, { loader: "css-loader" }, {
-          loader: "sass-loader"
-        }]
-      },
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
@@ -33,7 +32,14 @@ module.exports = {
       },
       // All output '.js' files from TypeScript compiler will have any source
       // maps reprocessed by 'source-map-loader'
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      { test: /\.(jpg|png)$/, use: { loader: 'url-loader' } },
+      {
+        test: /\.s?css$/, use: [{ loader: "style-loader" }, { loader: "css-loader" }, {
+          loader: "sass-loader"
+        }]
+      },
+      
     ]
   },
   
